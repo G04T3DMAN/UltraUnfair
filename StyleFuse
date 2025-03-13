@@ -1,0 +1,78 @@
+-- Create a ScreenGui to display the warning message
+local playerGui = game.Players.LocalPlayer.PlayerGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "FusionWarning"
+screenGui.Parent = playerGui
+
+-- Create a TextLabel to display the warning message
+local warningLabel = Instance.new("TextLabel")
+warningLabel.Name = "FusionWarningLabel"
+warningLabel.Size = UDim2.new(0, 2000, 0, 500)
+warningLabel.Position = UDim2.new(0.5, -1000, 0.5, -250)
+warningLabel.Text = "Fusion is about to start. To avoid bugging, stay in a hidden place and do not attempt to mess with your equipped style."
+warningLabel.Font = Enum.Font.SourceSansBold
+warningLabel.FontSize = Enum.FontSize.Size48
+warningLabel.TextColor3 = Color3.new(1, 1, 1)
+warningLabel.BackgroundTransparency = 1
+warningLabel.Parent = screenGui
+
+-- Function to fade in and then out the warning message
+local function fadeInAndOutWarning()
+local tweenService = game:GetService("TweenService")
+local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+local tween = tweenService:Create(warningLabel, tweenInfo, {TextTransparency = 0})
+tween:Play()
+wait(5)
+tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+tween = tweenService:Create(warningLabel, tweenInfo, {TextTransparency = 1})
+tween:Play()
+wait(0.5)
+screenGui:Destroy()
+end
+
+-- Call the function to fade in and out the warning message
+fadeInAndOutWarning()
+
+-- Main script
+for i = 1, 125 do
+local ohString1 = "Relic"
+local ohTable2 = { [1] = 3, [2] = 4, [3] = 5, [4] = 6 }
+game:GetService("ReplicatedStorage").UpgradeItem:InvokeServer(ohString1, ohTable2)
+wait(0.1)
+end
+
+-- Create a ScreenGui to display the completion message
+local playerGui = game.Players.LocalPlayer.PlayerGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "FusionMessage"
+screenGui.Parent = playerGui
+
+-- Create a TextLabel to display the completion message
+local messageLabel = Instance.new("TextLabel")
+messageLabel.Name = "FusionMessageLabel"
+messageLabel.Size = UDim2.new(0, 2000, 0, 500)
+messageLabel.Position = UDim2.new(0.5, -1000, 0.5, -250)
+messageLabel.Text = "Fusion has finished"
+messageLabel.Font = Enum.Font.SourceSansBold
+messageLabel.FontSize = Enum.FontSize.Size96
+messageLabel.TextColor3 = Color3.new(1, 1, 1)
+messageLabel.BackgroundTransparency = 1
+messageLabel.Parent = screenGui
+messageLabel.TextTransparency = 1
+
+-- Function to fade in and then out the completion message
+local function fadeInAndOutMessage()
+local tweenService = game:GetService("TweenService")
+local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+local tween = tweenService:Create(messageLabel, tweenInfo, {TextTransparency = 0})
+tween:Play()
+wait(2)
+tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+tween = tweenService:Create(messageLabel, tweenInfo, {TextTransparency = 1})
+tween:Play()
+wait(0.5)
+screenGui:Destroy()
+end
+
+-- Call the function to fade in and out the completion message
+fadeInAndOutMessage()
