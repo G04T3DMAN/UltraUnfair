@@ -7,7 +7,7 @@ screenGui.Parent = playerGui
 -- Create a TextLabel to display the warning message
 local warningLabel = Instance.new("TextLabel")
 warningLabel.Name = "FusionWarningLabel"
-warningLabel.Size = UDim2.new(0, 2000, 0, 500)
+warningLabel.Size = UDim2.new(0, 1000, 0, 250)
 warningLabel.Position = UDim2.new(0.5, -1000, 0.5, -250)
 warningLabel.Text = "Fusion is about to start. To avoid bugging, stay in a hidden place and do not attempt to mess with your equipped style."
 warningLabel.Font = Enum.Font.SourceSansBold
